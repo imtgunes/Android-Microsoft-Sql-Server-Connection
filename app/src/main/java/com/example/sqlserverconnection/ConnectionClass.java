@@ -11,12 +11,14 @@ public class ConnectionClass {
     private String ip = "192.168.1.140";
     private String port = "1433";
     private String databaseName = "testdatabase";
+    private String url = "";
+    private Connection connection = null;
+    
     public Connection connection()
     {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        Connection connection = null;
-        String url = "";
+        
         try{
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             url = "jdbc:jtds:sqlserver://"+ip+":"+port+";"+"databasename="+databaseName+";user="+login+";password="+password+";";
